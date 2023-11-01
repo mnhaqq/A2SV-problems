@@ -5,14 +5,9 @@ class Solution:
 
         def get_candidates(state):
             global_state = []
-            if len(state) == 0:
-                i = 0
-            else:
-                i = nums.index(state[-1]) + 1
-            while len(state) + len(global_state) < len(nums):
-                if nums[i % len(nums)] not in state:
-                    global_state.append(nums[i % len(nums)])
-                i += 1
+            for i in range(len(nums)):
+                if nums[i] not in state:
+                    global_state.append(nums[i])
             return global_state
 
         def search(state, solutions):
