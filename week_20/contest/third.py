@@ -13,7 +13,7 @@ def solve():
         while window_sum > s:
             window_sum -= a[l]
             l+=1
-        longest = min(longest, n + (l - r - 1))
+        longest = min(longest, n + l - r - 1)
     print(longest)
 
 t = int(input())
