@@ -1,5 +1,4 @@
 from typing import Optional
-
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -13,9 +12,7 @@ class Solution:
         def helper(left, right):
             if not left and not right:
                 return True
-            if not left or not right:
-                return False
-            if left.val != right.val:
+            if (not left or not right) or (left.val != right.val):
                 return False
             check_1 = helper(left.right, right.left)
             check_2 = helper(right.right, left.left)
