@@ -10,12 +10,11 @@ class Solution:
         def helper(root, low, high):
             if not root:
                 return True
-            elif root.val > low and root.val < high:
-                ans = True
-            else:
-                ans = False
+            if not(root.val > low and root.val < high):
+                return False
+            
             left = helper(root.left, low, root.val)
             right = helper(root.right, root.val, high)
-            return ans and left and right
+            return left and right
 
         return helper(root, float("-inf"), float("inf"))
