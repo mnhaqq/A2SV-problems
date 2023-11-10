@@ -6,10 +6,14 @@ class TreeNode:
         self.left = left
         self.right = right
 class Solution:
-    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        if not root:
-            return
-        self.invertTree(root.left)
-        self.invertTree(root.right)
-        root.right, root.left = root.left, root.right
-        return root
+    def preorderTraversal(self, root: Optional[TreeNode]) -> list[int]:
+        def helper(root):
+            if not root:
+                return
+            arr.append(root.val)
+            helper(root.left)
+            helper(root.right)
+        
+        arr = []
+        helper(root)
+        return arr
