@@ -16,7 +16,7 @@ def solve():
 
     ans = float("-inf")
     for i in range(len(a) + 1):
-        low, high = 0, min(m, (s - A * i) // B)
+        low, high = 0, len(b)
         while low <= high:
             mid = (low + high) // 2
             total_weight = A * i + B * mid
