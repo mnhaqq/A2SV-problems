@@ -1,25 +1,22 @@
 class Solution:
     def subsets(self, nums: list[int]) -> list[list[int]]:
-        def is_valid_state(state):
-            return len(state) <= len(nums)
+        def backtrack(curr):
+            if len(curr) <= len(nums):
+                result.append(curr.copy())
 
-        def get_candidates(state):
-            if len(state) == 0:
-                global_state = set([i for i in nums])
+            if len(curr) == 0:
+                for i in nums:
+                    curr.add(i)
+                    backtrack(curr)
+                    curr.remove(i)
             else:
-                global_state = set([i for i in nums if i > max(state)])
-            return global_state
+                for i in nums:
+                    if i <= max(curr):
+                        continue
+                    curr.add(i)
+                    backtrack(curr)
+                    curr.remove(i)
 
-        def search(state, solutions):
-            if is_valid_state(state):
-                solutions.append(state.copy())
-
-            for candidate in get_candidates(state):
-                state.add(candidate)
-                search(state, solutions)
-                state.remove(candidate)
-
-        solutions = []
-        state = set()
-        search(state, solutions)
-        return solutions
+        result = []
+        backtrack(set())
+        return result
