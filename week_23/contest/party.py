@@ -13,7 +13,7 @@ def solve():
         if p[i] == -1:
             continue
         adj_list[p[i]].append(i+1)
-    
+        
     colors = [-1] * n
     def dfs(num, color):
         if colors[num-1] == -1:
