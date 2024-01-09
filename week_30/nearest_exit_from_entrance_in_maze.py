@@ -22,7 +22,6 @@ class Solution:
             for _ in range(len_level):
                 r, c = queue.popleft()
                 if check_exit(r, c) and (r, c) != tuple(entrance):
-                    print(r, c)
                     return ans
 
                 for a, b in moves:
