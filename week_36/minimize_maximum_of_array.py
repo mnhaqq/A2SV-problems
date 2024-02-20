@@ -6,5 +6,6 @@ class Solution:
 
         for i in range(len(nums)):
             tt += nums[i]
-            ans = max(ans, ceil(tt/(i+1)))
+            if nums[i] > ans:
+                ans = max(ans, ceil(tt/(i+1)))
         return ans
