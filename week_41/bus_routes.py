@@ -1,5 +1,7 @@
+from collections import defaultdict, deque
+
 class Solution:
-    def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
+    def numBusesToDestination(self, routes: list[list[int]], source: int, target: int) -> int:
         if source == target:
             return 0
         graph = defaultdict(list)
